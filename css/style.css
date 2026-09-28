@@ -510,27 +510,6 @@ textarea:focus {
   overflow: hidden;
 }
 
-.detail-visual:before {
-  content: "";
-  position: absolute;
-  inset: 19% 10% 0;
-  background: #fff6e3;
-  clip-path: polygon(0 32%,47% 0,100% 32%,100% 100%,0 100%);
-}
-
-.detail-visual:after {
-  content: "Your next home near HAU";
-  position: absolute;
-  left: 50%;
-  top: 44%;
-  transform: translate(-50%,-50%);
-  color: #fff;
-  font-weight: bold;
-  font-size: clamp(1.25rem,3vw,2.3rem);
-  text-shadow: 0 2px 8px rgba(0,0,0,.35);
-  white-space: nowrap;
-}
-
 .detail-layout {
   display: grid;
   grid-template-columns: 1.5fr .8fr;
