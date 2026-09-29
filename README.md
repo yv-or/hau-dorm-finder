@@ -58,7 +58,7 @@ hau-dorm-finder/
 │   └── images/             # HAU seal
 ├── REPORT.md               # Weekly project report
 ├── DIVISION.md             # Weekly division of work
-└── journal/                # Weekly reflection entries
+├── AI-USAGE.md             # AI usage disclosure
 ```
 
 ## Key features
@@ -80,6 +80,14 @@ hau-dorm-finder/
 - **Video walkthrough:** (Link to Google Drive video — 3–5 min)
 - **Slides:** `HAU-Dorm-Finder-Presentation.pptx`
 - **Square image:** `HAU-Dorm-Finder-Square-Image.png` (1080 × 1080)
+
+## AI Usage
+
+![AI Assisted](https://img.shields.io/badge/AI-Assisted-30%25-blue)
+
+This project was developed with assistance from **OpenAI Codex and Claude**. Approximately **30% of the project was AI-assisted**, mainly for coding guidance, debugging, explanations, implementation suggestions, and code review. All AI-assisted code was adapted, tested, and reviewed by the group members.
+
+For a detailed record of how AI was used, including cases where AI suggestions were incorrect, see **[AI-USAGE.md](AI-USAGE.md)**.
 
 ## Credits
 
