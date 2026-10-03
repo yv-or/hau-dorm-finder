@@ -1,6 +1,6 @@
 # HAU Dorm Finder
 
-**Project members:** Rovy Dalusung and Angeline Borja  
+**Project members:** Rovy Dalusung and Angeline Borja
 [![Made with AI](https://img.shields.io/badge/Made_with-AI_assistance-blue)](AI-USAGE.md)
 **Repository:** [github.com/yv-or/hau-dorm-finder](https://github.com/yv-or/hau-dorm-finder)  
 **Live site:** [yv-or.github.io/hau-dorm-finder](https://yv-or.github.io/hau-dorm-finder)
