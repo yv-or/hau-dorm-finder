@@ -9,7 +9,7 @@
 
 **AI tools used:** OpenAI Codex and Claude
 
-**Our honest estimate of AI-assisted work:** 30% — We estimate that around 30% of the project was AI-assisted, mainly through coding guidance, debugging, explanations, implementation suggestions, and code review. The final implementation was adapted and tested by the group members.
+**Our honest estimate of AI-assisted work:** 70% — We estimate that around 70% of the project was AI-assisted, mainly through generated code suggestions, coding guidance, debugging, explanations, and code review. The remaining part is code we wrote ourselves, and the final implementation was adapted and tested by the group members.
 
 ---
 
@@ -113,7 +113,7 @@ Each case below is something that actually happened while we built the site.
 
 **What AI gave us:** JavaScript that looked for element IDs and classes based on the example structure it generated, including selectors for the search input, filter controls, and dorm listing container.
 
-**What was wrong:** Some selectors from the AI's example did not match the actual IDs and attributes in our HTML. Our project uses elements such as `#search`, `#price`, `#distance`, `#dormGrid`, and `[name="amenity"]`. Using different selectors would prevent the JavaScript from finding the correct controls and listing container.
+**What was wrong:** The selectors in the AI's example were based on the structure it invented, not on our real HTML. Our actual elements are `#search`, `#price`, `#distance`, `#dormGrid`, and `[name="amenity"]`. When a selector does not match anything, `querySelector` returns `null`, so the script could not find the search box, the filter controls, or the listing container, and the filters could not work.
 
 **What we did instead:** We checked our actual HTML and changed the selectors to match the elements that really exist in our project. We then tested the search and filters in the browser.
 
@@ -123,7 +123,7 @@ Each case below is something that actually happened while we built the site.
 
 **What AI gave us:** A general responsive card and grid layout for the dorm listings.
 
-**What was wrong:** The generated layout did not match our actual design. Some cards had spacing and sizing that were different from what we wanted, and the layout did not look consistent at smaller screen sizes.
+**What was wrong:** The generated layout did not match our maroon and gold design. The dorm cards had padding and sizing that differed from what we wanted, and at phone and tablet widths the card columns and spacing did not stay consistent, so the listings looked cramped and uneven compared with the desktop view.
 
 **What we did instead:** Angeline adjusted the CSS by hand in VS Code, changing the spacing, sizing, alignment, colors, cards, and responsive behavior until the pages matched our intended design.
 
@@ -145,11 +145,13 @@ Each case below is something that actually happened while we built the site.
 
 ## `yv-or` — Rovy Dalusung
 
-**What I wrote:** The HTML pages and the JavaScript in `js/listings.js`, `js/detail.js`, and `js/main.js`, and I connected them to each other.
+**What I wrote:** I adapted, wrote, and connected the HTML pages and the JavaScript in `js/listings.js`, `js/detail.js`, and `js/main.js`. Some of it started from AI suggestions (see Section 1), but I changed it to fit our own HTML and `DORM_DATA`, connected the files to each other, and tested everything in the browser. The parts below are the ones I can explain in my own words.
 
-**Commit:** [View commit](https://github.com/yv-or/hau-dorm-finder/commit/f3cccf9fa7af6d35e0529d846ddfc849a3d463c4)
+**Commits:** HTML pages: [f3cccf9](https://github.com/yv-or/hau-dorm-finder/commit/f3cccf9fa7af6d35e0529d846ddfc849a3d463c4) · `listings.js`: [ada0a40](https://github.com/yv-or/hau-dorm-finder/commit/ada0a406e529115c600c772080ab93b259f138e5) · `detail.js`: [d87dc15](https://github.com/yv-or/hau-dorm-finder/commit/d87dc154316f0b21dd3337870cbeb74bf530eedc)
 
 ### `listings.js` — the `render` function
+
+**Commit:** [View commit](https://github.com/yv-or/hau-dorm-finder/commit/ada0a406e529115c600c772080ab93b259f138e5)
 
 The `render` function handles the current filters in one place. Whenever the search box, a dropdown, or an amenity checkbox changes, it reads the current filter values and checks the dorms inside `DORM_DATA`.
 
@@ -160,6 +162,8 @@ After filtering, `render` updates the number of matching dorms and redraws the d
 I used one `render` function for the filters because all of the controls affect the same list of dorms. Calling `render()` once when the page loads also makes sure that the initial results are displayed immediately instead of waiting for the user to interact with a filter.
 
 ### `detail.js`
+
+**Commit:** [View commit](https://github.com/yv-or/hau-dorm-finder/commit/d87dc154316f0b21dd3337870cbeb74bf530eedc)
 
 `detail.js` reads the `id` from the URL, such as `detail.html?id=3`, and uses that ID to find the corresponding dormitory inside `DORM_DATA`.
 
@@ -177,7 +181,7 @@ The `dormCard` template creates the HTML used for each dormitory result. It take
 
 We kept this approach because generating the card from the dorm data means we do not have to manually write a separate HTML card for every dorm. When the filtered results change, JavaScript can generate the appropriate cards again using the same structure.
 
-I understand that the data is inserted into the template, the resulting HTML is returned, and the collection of generated cards is then placed into the listings container.
+I understand the flow like this: `render` filters `DORM_DATA`, then calls `dormCard` once for each dorm that passed. Each call takes one dorm object and puts its name, location, price, and image into the card markup, then returns that HTML as a string. `render` joins all the strings together and puts them inside `#dormGrid`, replacing whatever was there before. That is why changing a filter only needs one `render()` call to redraw everything. If a dorm's data changes in `DORM_DATA`, its card updates automatically without editing any HTML.
 
 ---
 
