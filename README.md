@@ -86,7 +86,7 @@ hau-dorm-finder/
 
 ![AI Assisted](https://img.shields.io/badge/AI--Assisted%20%E2%80%A2%2070%25-blue)
 
-This project was developed with assistance from **OpenAI Codex and Claude**. Approximately **30% of the project was AI-assisted**, mainly for coding guidance, debugging, explanations, implementation suggestions, and code review. All AI-assisted code was adapted, tested, and reviewed by the group members.
+This project was developed with assistance from **OpenAI Codex and Claude**. Approximately **70% of the project was AI-assisted**, mainly for coding guidance, debugging, explanations, implementation suggestions, and code review. All AI-assisted code was adapted, tested, and reviewed by the group members.
 
 For a detailed record of how AI was used, including cases where AI suggestions were incorrect, see **[AI-USAGE.md](AI-USAGE.md)**.
 
